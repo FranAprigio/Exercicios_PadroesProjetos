@@ -1,5 +1,6 @@
 package Proxy;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class SistemaArquivosProxy implements ISistemaArquivos{
@@ -20,7 +21,7 @@ public class SistemaArquivosProxy implements ISistemaArquivos{
     }
 
     @Override
-    public List<Float> obterDadosArquivo(Cliente cliente) {
+    public List<LocalDateTime> obterDadosArquivo(Cliente cliente) {
         if (!cliente.isAtivo()){
             throw new IllegalArgumentException("O Cliente esta inativo");
         }

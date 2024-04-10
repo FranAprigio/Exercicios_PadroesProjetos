@@ -1,6 +1,7 @@
 package Proxy;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -9,8 +10,8 @@ public class SistemaArquivos implements ISistemaArquivos{
     private Integer numArquivo;
     private Integer quantArquivos;
     private String tituloArquivo;
-    private Timestamp dataCriacao;
-    private Timestamp dataAlteracao;
+    private LocalDateTime dataCriacao;
+    private LocalDateTime dataAlteracao;
 
     public SistemaArquivos(int NumArquivo) {
         this.numArquivo = NumArquivo;
@@ -21,7 +22,7 @@ public class SistemaArquivos implements ISistemaArquivos{
         this.dataAlteracao = objeto.dataAlteracao;
     }
 
-    public SistemaArquivos(Integer numArquivo, Integer quantArquivos, String tituloArquivo, Timestamp dataCriacao, Timestamp dataAlteracao) {
+    public SistemaArquivos(Integer numArquivo, Integer quantArquivos, String tituloArquivo, LocalDateTime dataCriacao, LocalDateTime dataAlteracao) {
         this.numArquivo = numArquivo;
         this.quantArquivos = quantArquivos;
         this.tituloArquivo = tituloArquivo;
@@ -39,8 +40,8 @@ public class SistemaArquivos implements ISistemaArquivos{
     }
 
     @Override
-    public List<Float> obterDadosArquivo(Cliente cliente) {
-        return Arrays.asList((float) this.dataCriacao.getTime(), (float) this.dataAlteracao.getTime());
+    public List<LocalDateTime> obterDadosArquivo(Cliente cliente) {
+        return Arrays.asList(this.dataCriacao, this.dataAlteracao);
     }
 
 }
